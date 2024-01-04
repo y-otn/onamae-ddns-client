@@ -1,0 +1,12 @@
+# /etc/systemd/system/onme_ddns_client.service
+
+[Unit]
+Description=Onamae DDNS Client Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/onme_ddns_client.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
