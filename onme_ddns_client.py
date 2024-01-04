@@ -1,7 +1,7 @@
 import socket
 import ssl
+import sys
 import time
-from datetime import datetime
 
 # Official client minimum is 300 seconds. Do not set below this value.
 # 公式クライアントの最小値は300秒です。これより小さい値を設定しないでください。
@@ -11,7 +11,9 @@ PASSWORD = 'password'
 HOSTNAME = ''  # optional
 DOMNAME = 'example.com'
 
-# Check configuration values and support for Japanese domain names.
+# Check Python version, configuration, and support for Japanese domain names.
+if sys.version_info < (3, 7):
+    sys.exit("This script requires Python 3.7 or higher.")
 assert INTERVAL >= 300
 HOSTNAME = HOSTNAME.encode('idna').decode()
 DOMNAME = DOMNAME.encode('idna').decode()
@@ -49,7 +51,7 @@ def check_server_status(ssl_sock, logged_in=False):
     if status_code:
         if logged_in:
             send_message(ssl_sock, 'LOGOUT\n.\n')
-        print(f'{datetime.now()} - Failed to update DNS records. Status: {message.splitlines()[0]}')
+        print(f'Failed to update DNS records. Status: {message.splitlines()[0]}')
     return status_code
 
 
@@ -57,7 +59,7 @@ def update_dns_records():
     try:
         ipv4 = get_ipv4_address()
         if check_ipv4_domain(ipv4):
-            print(f'{datetime.now()} - No update necessary, DNS records are current.')
+            print('No update necessary, DNS records are current.')
             return
         context = ssl.create_default_context()
         with socket.create_connection(('ddnsclient.onamae.com', 65010), timeout=15) as sock, \
@@ -73,9 +75,9 @@ def update_dns_records():
             send_message(ssl_sock, 'LOGOUT\n.\n')
             if check_server_status(ssl_sock):
                 return
-        print(f'{datetime.now()} - DNS records updated successfully. IPv4: {ipv4}')
+        print(f'DNS records updated successfully. IPv4: {ipv4}')
     except Exception as e:
-        print(f'{datetime.now()} - Failed to update DNS records. Exception: {e}')
+        print(f'Failed to update DNS records. Exception: {e}')
 
 
 def main():
