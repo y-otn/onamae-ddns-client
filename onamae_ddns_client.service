@@ -4,7 +4,7 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-ExecStart=/usr/bin/python3 /usr/local/bin/onme_ddns_client.py
+ExecStart=/usr/bin/python3 /usr/local/bin/onamae_ddns_client.py
 Environment=PYTHONUNBUFFERED=1
 Restart=on-failure
 

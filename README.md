@@ -15,7 +15,7 @@ Unofficial Python Implementation of Onamae.com's DDNS Client.
    cd onamae-ddns-client
    ```
 
-2. Modify the following items in `onme_ddns_client.py` (L8-L12):
+2. Modify the following items in `onamae_ddns_client.py` (L8-L12):
    - `INTERVAL`
    - `USERID`
    - `PASSWORD`
@@ -25,29 +25,29 @@ Unofficial Python Implementation of Onamae.com's DDNS Client.
 3. Place the script and set appropriate permissions:
 
    ```bash
-   sudo mv onme_ddns_client.py /usr/local/bin/
-   sudo chown root:root /usr/local/bin/onme_ddns_client.py
-   sudo chmod 600 /usr/local/bin/onme_ddns_client.py
+   sudo mv onamae_ddns_client.py /usr/local/bin/
+   sudo chown root:root /usr/local/bin/onamae_ddns_client.py
+   sudo chmod 600 /usr/local/bin/onamae_ddns_client.py
    ```
 
 4. Register as a service for automatic startup (this will also start it immediately):
 
    ```bash
-   sudo cp onme_ddns_client.service /etc/systemd/system/
+   sudo cp onamae_ddns_client.service /etc/systemd/system/
    sudo systemctl daemon-reload
-   sudo systemctl enable --now onme_ddns_client.service
+   sudo systemctl enable --now onamae_ddns_client.service
    ```
 
 5. Check the service status:
 
    ```bash
-   sudo systemctl status onme_ddns_client.service
+   sudo systemctl status onamae_ddns_client.service
    ```
 
 ## Disclaimer
 
 - Please be aware that this script is an unofficial implementation and is not officially recognized or endorsed. Use it at your own risk.
-- Ensure that `onme_ddns_client.py` is not repeatedly triggered by cron or similar services, as it is designed to run continuously.
+- Ensure that `onamae_ddns_client.py` is not repeatedly triggered by cron or similar services, as it is designed to run continuously.
 
 ## References
 
