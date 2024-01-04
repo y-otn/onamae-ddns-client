@@ -11,7 +11,7 @@ PASSWORD = 'password'
 HOSTNAME = ''  # optional
 DOMNAME = 'example.com'
 
-# Check Python version, configuration, and support for Japanese domain names.
+# Check Python version and configuration, and support Japanese domain names.
 if sys.version_info < (3, 7):
     sys.exit("This script requires Python 3.7 or higher.")
 assert INTERVAL >= 300
