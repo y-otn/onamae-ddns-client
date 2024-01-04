@@ -15,7 +15,7 @@ Unofficial Python Implementation of Onamae.com's DDNS Client.
    cd onamae-ddns-client
    ```
 
-2. Modify the following items in `onme_ddns_client.py`:
+2. Modify the following items in `onme_ddns_client.py` (L8-L12):
    - `INTERVAL`
    - `USERID`
    - `PASSWORD`
