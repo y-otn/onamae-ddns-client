@@ -13,7 +13,7 @@ DOMNAME = 'example.com'
 
 # Check Python version and configuration, and support Japanese domain names.
 if sys.version_info < (3, 7):
-    sys.exit("This script requires Python 3.7 or higher.")
+    sys.exit('This script requires Python 3.7 or higher.')
 assert INTERVAL >= 300
 HOSTNAME = HOSTNAME.encode('idna').decode()
 DOMNAME = DOMNAME.encode('idna').decode()
