@@ -44,6 +44,12 @@ Unofficial Python Implementation of Onamae.com's DDNS Client.
    sudo systemctl status onamae_ddns_client.service
    ```
 
+   For more extensive logs, use:
+
+   ```bash
+   sudo journalctl -u onamae_ddns_client.service
+   ```
+
 ## Disclaimer
 
 - Please be aware that this script is an unofficial implementation and is not officially recognized or endorsed. Use it at your own risk.
