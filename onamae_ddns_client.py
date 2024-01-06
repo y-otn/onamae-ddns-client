@@ -19,18 +19,18 @@ HOSTNAME = HOSTNAME.encode('idna').decode()
 DOMNAME = DOMNAME.encode('idna').decode()
 
 
-def recv_message(ssl_sock):
+def recv_message(sock):
     buffer = bytearray()
     while True:
-        data = ssl_sock.recv(4096)
+        data = sock.recv(4096)
         buffer += data
         if b'\n.' in buffer or not data:
             break
     return buffer.decode()
 
 
-def send_message(ssl_sock, message):
-    ssl_sock.sendall(message.encode())
+def send_message(sock, message):
+    sock.sendall(message.encode())
 
 
 def get_ipv4_address():
