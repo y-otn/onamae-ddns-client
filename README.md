@@ -2,6 +2,8 @@
 
 Unofficial Python Implementation of Onamae.com's DDNS Client.
 
+[お名前.comのDDNSクライアントをPythonで実装した【Linux対応】 #Python - Qiita](https://qiita.com/y-otn/items/1efe5b9f6e425841cc1b)
+
 ## Requirements
 
 - Python 3.7 or higher
